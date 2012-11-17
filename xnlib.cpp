@@ -42,7 +42,7 @@ namespace xn {
     return true;
   }
 
-  inline wstring utf8ToWide( const string& sIn )
+  wstring utf8ToWide( const string& sIn )
   {
     DWORD dwLength = Globals::mKernel.pfnMultiByteToWideChar( CP_UTF8, NULL,
       sIn.c_str(), -1, NULL, NULL );

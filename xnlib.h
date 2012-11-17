@@ -176,6 +176,6 @@ namespace xn {
 
   // -- Internal --------------------------------------------------------------
 
-  inline wstring utf8ToWide( const string& sIn );
+  wstring utf8ToWide( const string& sIn );
 
 }
