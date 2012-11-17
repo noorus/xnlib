@@ -169,4 +169,24 @@ namespace xn {
     }
   }
 
+  HMODULE MemoryPE::getModule() throw()
+  {
+    return (HMODULE)pDosHeader;
+  }
+
+  ULONG_PTR MemoryPE::getEntryPoint() throw()
+  {
+    return (ULONG_PTR)pDosHeader + pNtHeader->OptionalHeader.AddressOfEntryPoint;
+  }
+
+  ImportedModuleList& MemoryPE::getImports() throw()
+  {
+    return mImports;
+  }
+
+  ExportedModule& MemoryPE::getExports() throw()
+  {
+    return mExports;
+  }
+
 }

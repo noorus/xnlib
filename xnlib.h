@@ -167,11 +167,12 @@ namespace xn {
     void processExports( void );
   public:
     explicit MemoryPE( HMODULE hModule );
-    HMODULE getModule() throw() { return (HMODULE)pDosHeader; }
+    HMODULE getModule() throw();
+    ULONG_PTR getEntryPoint() throw();
     ImportedModule* findImportedModule( HMODULE hModule );
     ImportedModule* findImportedModule( const wstring& sName );
-    ImportedModuleList& getImports() throw() { return mImports; }
-    ExportedModule& getExports() throw() { return mExports; }
+    ImportedModuleList& getImports() throw();
+    ExportedModule& getExports() throw();
   };
 
   // -- Internal --------------------------------------------------------------
