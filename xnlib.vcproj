@@ -47,6 +47,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="BeaEngine"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;BEA_ENGINE_STATIC;BEA_USE_STDCALL"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -67,6 +68,7 @@
 			<Tool
 				Name="VCLibrarianTool"
 				AdditionalDependencies="BeaEngineCheetah.lib"
+				AdditionalLibraryDirectories="BeaEngine"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -114,6 +116,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="BeaEngine"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;BEA_ENGINE_STATIC;BEA_USE_STDCALL"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -133,6 +136,7 @@
 			<Tool
 				Name="VCLibrarianTool"
 				AdditionalDependencies="BeaEngineCheetah.lib"
+				AdditionalLibraryDirectories="BeaEngine"
 			/>
 			<Tool
 				Name="VCALinkTool"
