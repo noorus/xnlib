@@ -3,7 +3,7 @@
 
 namespace xn {
 
-  KernelTable Globals::mKernel;
+  Kernel Globals::mKernel;
 
   bool __fastcall calculateCopySize( DWORD_PTR pAddress, DWORD dwDesired,
   DWORD* pdwSize )

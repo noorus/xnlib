@@ -47,7 +47,7 @@ namespace xn {
     Globals::mKernel.pfnVirtualProtect( (LPVOID)mAddress, 5, dwOldProtection, &dwOldProtection );
   }
 
-  // DetourHook class ---------------------------------------------------------
+  // DetourHook ---------------------------------------------------------------
 
   DetourHook::DetourHook( ULONG_PTR pAddress, LPVOID pfnTarget,
   LPVOID& ppfnOriginal, bool pushCallee ):
@@ -118,7 +118,7 @@ namespace xn {
     }
   }
 
-  // HookManager class -------------------------------------------------------
+  // HookManager --------------------------------------------------------------
 
   HookManager::HookManager()
   {

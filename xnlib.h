@@ -32,7 +32,8 @@ namespace xn {
   typedef BOOL (WINAPI *fnVirtualProtect)( LPVOID lpAddress, SIZE_T dwSize, DWORD flNewProtect, PDWORD lpflOldProtect );
   typedef int (WINAPI *fnMultiByteToWideChar)( UINT CodePage, DWORD dwFlags, LPCSTR lpMultiByteStr, int cbMultiByte, LPWSTR lpWideCharStr, int cchWideChar );
 
-  struct KernelTable {
+  struct Kernel {
+    HMODULE hModule;
     fnDisableThreadLibraryCalls pfnDisableThreadLibraryCalls;
     fnFlushInstructionCache pfnFlushInstructionCache;
     fnFreeLibrary pfnFreeLibrary;
@@ -49,7 +50,7 @@ namespace xn {
 
   struct Globals {
   public:
-    static KernelTable mKernel;
+    static Kernel mKernel;
   };
 
   bool __fastcall calculateCopySize( DWORD_PTR pAddress, DWORD dwDesired, DWORD* pdwSize );
