@@ -130,6 +130,7 @@ namespace xn {
       return;
 
     pExports = (PIMAGE_EXPORT_DIRECTORY)( (DWORD)pDosHeader + pNtHeader->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress );
+    ULONG_PTR pExportsEnd = (ULONG_PTR)pExports + pNtHeader->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
 
     if ( pExports->Name > 0 )
     {
@@ -148,7 +149,16 @@ namespace xn {
       for ( DWORD i = 0; i < pExports->NumberOfFunctions; i++ )
       {
         ExportedFunction f;
-        f.pfnFunction = (LPVOID)( (DWORD)pDosHeader + pdwExpFunctions[i] );
+        ULONG_PTR ptr = (ULONG_PTR)( (DWORD)pDosHeader + pdwExpFunctions[i] );
+        if ( ptr >= (ULONG_PTR)pExports && ptr <= pExportsEnd ) {
+          f.bForwarded = true;
+          f.pfnFunction = NULL;
+          f.pszForward = (PSTR)ptr;
+        } else {
+          f.bForwarded = false;
+          f.pfnFunction = (LPVOID)ptr;
+          f.pszForward = NULL;
+        }
         f.dwOrdinal = pExports->Base + i;
         mExports.flFunctions.push_back( f );
       }

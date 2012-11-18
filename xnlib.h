@@ -139,6 +139,8 @@ namespace xn {
     LPVOID pfnFunction;
     DWORD dwOrdinal;
     StringList fnlNames;
+    bool bForwarded;
+    PSTR pszForward;
   };
 
   typedef list<ExportedFunction> ExportedFunctionList;
