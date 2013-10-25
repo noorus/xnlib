@@ -7,7 +7,7 @@ Namely, it does `farjmp`, `call`, `detour`, `IAT` and `EAT` hooking and PE trave
 Uses BeaEngine Cheetah for disassembly.
 
 To use the library, you must first fill the Globals::mKernel structure with valid function pointers.  
-How you obtain those pointers and their implementation detail is up to you.
+How you obtain those pointers and the functions' implementation detail is up to you.
 
 Licensed under WTFPL 2.0.  
 For full license text, see the LICENSE file.
